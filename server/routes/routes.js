@@ -6,7 +6,10 @@ const booksController = require("../controller/booksController");
 router.post("/books",booksController.createBook);
 
 //Retrieve all books
-router.get('/allBooks', booksController.retrieveBooks)
+router.get('/allBooks', booksController.retrieveBooks);
+
+//Delete selected book
+router.delete('/removeBook', booksController.deleteBook)
 
 
 module.exports = router;

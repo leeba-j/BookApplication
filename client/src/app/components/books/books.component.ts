@@ -12,7 +12,10 @@ export class BooksComponent implements OnInit {
   ngOnInit(): void {
     this.bookCRUDService.retrieveBooks().subscribe((data) => {
       this.books = data;
-      console.log(data);
     });
+  }
+  deleteBook(_id: string){
+    this.bookCRUDService.deleteBook(_id).subscribe(data => console.log(data));
+
   }
 }

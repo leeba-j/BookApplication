@@ -5,20 +5,41 @@
         <p>{{item.description}}</p>
         <p>{{item.author}}</p>
         <button (click)="deleteBook(item._id)">Delete</button>
+        <button type="button" class="btn btn-primary" (click)="openModal(template)">Edit</button>
+
+        <ng-template #template>
+            <div class="modal-header">
+              <h4 class="modal-title pull-left">Edit book</h4>
+              <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formData" (ngSubmit)="editBook()">
+                    <div class="item">
+                        <label for="title">Title</label>
+                        <input value="Lol"  formControlName="title" type="text" id="title" required>
+                    </div>
+                    <div class="item">
+                        <label for="author">Author</label>
+                        <input formControlName="author" type="text" id="author" value="{{item.author}}"  required>
+                    </div>
+                    <div class="item">
+                        <label for="description">Description</label>
+                        <input formControlName="description" type="text" id="description" value="{{item.description}}"  required>
+                    </div>
+                    <div class="item">
+                        <label for="image">Image</label>
+                        <input formControlName="image" type="text" id="description" value="{{item.image}}"  required>
+                    </div>
+                    <button class="btn btn-danger" type="submit">Edit</button>
+                </form>
+           
+
+            </div>
+          </ng-template>
 
     </div>
 </div>
 
-<button type="button" class="btn btn-primary" (click)="openModal(template)">Create template modal</button>
      
-<ng-template #template>
-  <div class="modal-header">
-    <h4 class="modal-title pull-left">Modal</h4>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    This is a modal.
-  </div>
-</ng-template>

@@ -23,8 +23,8 @@ exports.retrieveBooks = (req, res) => {
 
 //Function that deletes a book according to its id
 exports.deleteBook = (req, res)=>{
-  const {_id} = req.body;
-  booksModel.findByIdAndDelete({_id: _id})
-  .then((data) => res.json(data))
-  .catch((error) => res.json("Error: ", error));
+  const {id} = req.params;
+  booksModel.findByIdAndDelete({_id: id})
+  .then((data) => res.status(status).json(data))
+  .catch((error) => res.status(status).json("Error: ", error));
 }

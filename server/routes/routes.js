@@ -9,7 +9,7 @@ router.post("/books",booksController.createBook);
 router.get('/allBooks', booksController.retrieveBooks);
 
 //Delete selected book
-router.delete('/removeBook', booksController.deleteBook)
+router.delete('/removeBook/:id', booksController.deleteBook)
 
 
 module.exports = router;

@@ -1,1 +1,21 @@
-<p>create-book works!</p>
+<div class="container">
+    <form [formGroup]="formData" (ngSubmit)="addBook()">
+        <div class="item">
+            <label for="title">Title</label>
+            <input formControlName="title" type="text" id="title"required>
+        </div>
+        <div class="item">
+            <label for="author">Author</label>
+            <input formControlName="author" type="text" id="author" required>
+        </div>
+        <div class="item">
+            <label for="description">Description</label>
+            <input formControlName="description" type="text" id="description" required>
+        </div>
+        <div class="item">
+            <label for="image">Image</label>
+            <input formControlName="image" type="text" id="description" required>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</div>

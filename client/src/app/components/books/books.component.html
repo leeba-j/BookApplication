@@ -4,7 +4,7 @@
         <img src="{{item.image}}" alt="book">
         <p>{{item.description}}</p>
         <p>{{item.author}}</p>
-
+        <button (click)="deleteBook(item._id)">Delete</button>
 
     </div>
 </div>

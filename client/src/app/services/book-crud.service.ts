@@ -15,6 +15,10 @@ API_URL = environment.API_URL
   }
 
   retrieveBooks(){
-    return this.httpClient.get(this.API_URL+"/allBooks")
+    return this.httpClient.get(this.API_URL+"allBooks")
+  }
+
+  deleteBook(_id: any){
+    return this.httpClient.delete(this.API_URL+`removeBook/${_id}`)
   }
 }

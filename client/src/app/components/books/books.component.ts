@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { BookCRUDService } from 'src/app/services/book-crud.service';
 
@@ -29,8 +29,17 @@ export class BooksComponent implements OnInit {
     this.bookCRUDService.deleteBook(_id).subscribe(data => console.log(data));
 
   }
-  editBook(){
-    console.log(this.formData.value);
+  editBook(wholeForm: NgForm, id:any){
+
+    let form = {
+      title: wholeForm.value.title,
+      author: wholeForm.value.author,
+      description: wholeForm.value.description,
+      image: wholeForm.value.image
+    }
+
+   console.log(id);
+    this.bookCRUDService.updateBook(id, form).subscribe();
   }
 
   openModal(template: TemplateRef<any>) {

@@ -21,4 +21,9 @@ API_URL = environment.API_URL
   deleteBook(_id: any){
     return this.httpClient.delete(this.API_URL+`removeBook/${_id}`)
   }
+
+  updateBook(id: any, book:any){
+    console.log(id, book);
+    return this.httpClient.patch(this.API_URL+`updateBook/${id}`,book );
+  }
 }

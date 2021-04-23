@@ -15,22 +15,22 @@
               </button>
             </div>
             <div class="modal-body">
-                <form [formGroup]="formData" (ngSubmit)="editBook()">
+                <form #wholeForm="ngForm" (ngSubmit)="editBook(wholeForm, item._id)">
                     <div class="item">
                         <label for="title">Title</label>
-                        <input value="Lol"  formControlName="title" type="text" id="title" required>
+                        <input ngModel name="title" [ngModel]="item.title"   type="text" id="title" required>
                     </div>
                     <div class="item">
                         <label for="author">Author</label>
-                        <input formControlName="author" type="text" id="author" value="{{item.author}}"  required>
+                        <input ngModel name="author" [ngModel]="item.author"  type="text" id="author"    required>
                     </div>
                     <div class="item">
                         <label for="description">Description</label>
-                        <input formControlName="description" type="text" id="description" value="{{item.description}}"  required>
+                        <input ngModel name="description" [ngModel]="item.description" type="text" id="description"   required>
                     </div>
                     <div class="item">
                         <label for="image">Image</label>
-                        <input formControlName="image" type="text" id="description" value="{{item.image}}"  required>
+                        <input ngModel name="image" [ngModel]="item.image" type="text" id="description"   required>
                     </div>
                     <button class="btn btn-danger" type="submit">Edit</button>
                 </form>

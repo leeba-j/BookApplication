@@ -15,7 +15,9 @@ export class CreateBookComponent implements OnInit {
       author : [''],
       description: [''],
       image: ['']
-    })
+    });
+
+    
    }
 
   ngOnInit(): void {

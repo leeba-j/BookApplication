@@ -27,8 +27,8 @@ exports.deleteBook = (req, res) => {
   const { id } = req.params;
   booksModel
     .findByIdAndDelete({ _id: id })
-    .then((data) => res.status(status).json(data))
-    .catch((error) => res.status(status).json("Error: ", error));
+    .then((data) => res.json(data))
+    .catch((error) => res.json("Error: ", error));
 };
 
 //Function that edits a book
@@ -40,6 +40,6 @@ exports.editBook = (req, res) => {
       { _id: id },
       { title: title, author: author, description: description, image: image }
     )
-    .then((data) => res.status(status).json(data))
-    .catch((error) => res.status(status).json("Error: ", error));
+    .then((data) => res.json(data))
+    .catch((error) => res.json("Error: ", error));
 };

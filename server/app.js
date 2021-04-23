@@ -5,9 +5,14 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const route = require("./routes/routes.js");
+const dotenv = require("dotenv");
+require("dotenv").config();
 //Initialize app
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
+const DATABASE_URL = process.env.DATABASE_URL;
+
+console.log(DATABASE_URL)
 
 //Use middleware
 app.use(cors());
@@ -19,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/book", route);
 
 //Connecting to database
-mongoose.connect("mongodb://localhost:27017/BOOKS", {
+mongoose.connect(DATABASE_URL, {
     useUnifiedTopology: true,
     useNewUrlParser: true ,
     useCreateIndex: true,

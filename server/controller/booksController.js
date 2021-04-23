@@ -19,7 +19,7 @@ exports.retrieveBooks = (req, res) => {
   booksModel
     .find({})
     .then((data) => res.json(data))
-    .catch((error) => res.json("Error: ", error));
+    .catch((error) => res.status(200).json("Error: ", error));
 };
 
 //Function that deletes a book according to its id

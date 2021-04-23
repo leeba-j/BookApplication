@@ -1,0 +1,53 @@
+.containerr{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.item{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 80%;
+    border: solid 1px gray;
+    padding: 20px;
+
+   
+}
+
+button{
+    width: 50%;
+    margin:  2% 25%;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+  }
+
+  h3{
+      width: 100%;
+      text-align: center;
+  }
+
+  .left, .right{
+    padding: 5px;
+    width: 48%;
+    margin: auto;
+
+  }
+  img{
+     width: 100%;
+     height: 100%;
+  }
+  body > app-root > app-create-book > app-navbar > nav > button{
+      display: none
+  }

@@ -1,11 +1,21 @@
-<div class="container">
+
+<app-navbar></app-navbar>
+<div class="containerr">
     <div *ngFor="let item of books" class="book">
-        <h1>{{item.title}}</h1>
-        <img src="{{item.image}}" alt="book">
-        <p>{{item.description}}</p>
-        <p>{{item.author}}</p>
-        <button (click)="deleteBook(item._id)">Delete</button>
-        <button type="button" class="btn btn-primary" (click)="openModal(template)">Edit</button>
+        <div class="left">
+            <img src="{{item.image}}" alt="book">
+
+        </div>
+<div class="right">
+    <h4>{{item.title}}</h4>
+    <p>{{item.author}}</p>
+    <hr>
+
+        <p> {{item.description}}</p>
+
+    <button class="btn btn-outline-secondary" (click)="deleteBook(item._id)">Delete</button>
+    <button type="button" class="btn btn-outline-secondary" (click)="openModal(template)">Edit</button>
+</div>
 
         <ng-template #template>
             <div class="modal-header">
@@ -18,21 +28,28 @@
                 <form #wholeForm="ngForm" (ngSubmit)="editBook(wholeForm, item._id)">
                     <div class="item">
                         <label for="title">Title</label>
-                        <input ngModel name="title" [ngModel]="item.title"   type="text" id="title" required>
+                        <input #title="ngModel" ngModel name="title" [ngModel]="item.title"   type="text" id="title" required>
+                        <p  *ngIf="title.touched && !title.valid">Required field</p>
                     </div>
                     <div class="item">
                         <label for="author">Author</label>
-                        <input ngModel name="author" [ngModel]="item.author"  type="text" id="author"    required>
+                        <input #author="ngModel" ngModel name="author" [ngModel]="item.author"  type="text" id="author"    required>
+                        <p *ngIf="author.touched && !author.valid">Required field</p>
+
                     </div>
                     <div class="item">
                         <label for="description">Description</label>
-                        <input ngModel name="description" [ngModel]="item.description" type="text" id="description"   required>
+                        <input #description="ngModel" ngModel name="description" [ngModel]="item.description" type="text" id="description"   required>
+                        <p *ngIf="author.touched && !author.valid">Required field</p>
+
                     </div>
                     <div class="item">
                         <label for="image">Image</label>
-                        <input ngModel name="image" [ngModel]="item.image" type="text" id="description"   required>
+                        <input #image="ngModel" ngModel name="image" [ngModel]="item.image" type="text" id="image"   required>
+                        <p *ngIf="image.touched && !image.valid">Required field</p>
+
                     </div>
-                    <button class="btn btn-danger" type="submit">Edit</button>
+                    <button (click)="closeModal(modalRef.hide())"class="btn btn-secondary" type="submit">Edit</button>
                 </form>
            
 

@@ -10,20 +10,22 @@ export class BookCRUDService {
 
   constructor(private httpClient: HttpClient) { }
 API_URL = environment.API_URL
-  addBook(bookData: any){
+//Method that allows a book to be added
+  public addBook(bookData: any): Observable<Object>{
     return this.httpClient.post(this.API_URL+'books',bookData);
   }
 
-  retrieveBooks(){
+  //Method that allows books to be retrieved
+  public retrieveBooks(): Observable<Object>{
     return this.httpClient.get(this.API_URL+"allBooks")
   }
-
-  deleteBook(_id: any){
+//Method that allows a book to be deleted
+  public deleteBook(_id: any): Observable<Object>{
     return this.httpClient.delete(this.API_URL+`removeBook/${_id}`)
   }
 
-  updateBook(id: any, book:any){
-    console.log(id, book);
+  //Method that allows a book to be updated
+  public updateBook(id: any, book:any): Observable<Object>{
     return this.httpClient.patch(this.API_URL+`updateBook/${id}`,book );
   }
 }
